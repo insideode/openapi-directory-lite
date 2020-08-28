@@ -55,25 +55,17 @@
           "description": "Lists all the available Machines.",
           "parameters": [
             {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
+            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/emojis"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
         }
       },
-      "/events": {
+      "/MachineInventories": {
         "get": {
-          "description": "List public events.",
+          "description": "List all Tools on Machine.",
           "parameters": [
             {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
+            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/events"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
         }
