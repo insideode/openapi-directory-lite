@@ -1,11 +1,10 @@
 {
-    "swagger": "2.0",
     "schemes": ["https"],
-    "host": "rest.coscom.de/api/",
+    "host": "rest.coscom.de/api",
     "basePath": "/",
     "x-hasEquivalentPaths": true,
     "info": {
-      "description": "Powerful collaboration, code review, and code management for open source and private projects.\n",
+      "description": "Powerfull testing tool for COSCOM endpoint.\n",
       "termsOfService": "https://help.github.com/articles/github-terms-of-service/#b-api-terms",
       "title": "COSCOM API",
       "version": "v1",
@@ -51,9 +50,9 @@
       }
     },
     "paths": {
-      "/emojis": {
+      "/Machines": {
         "get": {
-          "description": "Lists all the emojis available to use on GitHub.",
+          "description": "Lists all the available Machines.",
           "parameters": [
             {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
             {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
