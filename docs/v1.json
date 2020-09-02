@@ -13,7 +13,7 @@
         "get": {
           "description": "Lists all the available Machines.",
           "parameters": [
-            {"in": "header", "name": "Authorization", "description":"Please paste Token Bearer", "type": "string"}
+            {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer PqysmnwpijzcMeyui9...'", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
         },
