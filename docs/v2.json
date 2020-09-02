@@ -13,12 +13,11 @@
     "paths": {
       "/Machines": {
         "get": {
-          "description": "Lists all the available Machines.",
-          "parameters": [
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
+          "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer PqysmnwpijzcMeyui9...'", "type": "string"}
+        ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
         }
       },
       "/MachineInventories": {
@@ -3948,6 +3947,22 @@
       }
     },
     "definitions": {
+      "machines": {
+        "properties": {
+          "MachineID": {"type": "string"},
+          "PlantID": {"type": "integer"},
+          "Manufacturer": {"type": "string"},
+          "InventoryNumber": {"type": "integer"},
+          "ControlUnit": {"type": "string"},
+          "CostCenter": {"type": "string"},
+          "Description": {"type": "string"},
+          "Description2": {"type": "string"},
+          "Description3": {"type": "string"},
+          "Description4": {"type": "string"},
+          "TotalToolPlaces": {"type": "integer"},
+          "Links": {"properties": {"rel": {"type": "string"}, "href": {"type": "string"}}, "type": "object"}
+        }
+      },
       "asset": {
         "properties": {
           "content_type": {"type": "string"},
