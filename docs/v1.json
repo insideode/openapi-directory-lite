@@ -15,7 +15,7 @@
           "parameters": [
             {"in": "header", "name": "Authorization", "type": "string"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Feeds"}}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
         },
         "post": {
           "description": "Lists all the available Machines.",
