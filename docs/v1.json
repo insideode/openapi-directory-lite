@@ -60,6 +60,7 @@
         "get": {
           "description": "Get Token for current user.\n",
           "parameters": [
+            {"in": "header", "name": "Content-Type", "type": "string"},
             {"in": "body", "name": "Username", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
