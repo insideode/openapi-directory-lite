@@ -50,7 +50,7 @@
             {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
             {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}}
         },
         "post": {
           "description": "Create a gist.",
@@ -63,7 +63,7 @@
             {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"},
             {"in": "body", "name": "body", "required": true, "schema": {"$ref": "#/definitions/postGist"}}
           ],
-          "responses": {"201": {"description": "Created", "schema": {"$ref": "#/definitions/gist"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
+          "responses": {"201": {"description": "Created", "schema": {"$ref": "#/definitions/gist"}}}
         }
       },
       "/gists/public": {
@@ -78,7 +78,7 @@
             {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
             {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}}
         }
       },
       "/gists/starred": {
@@ -93,7 +93,52 @@
             {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
             {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}}
+        }
+      },
+      "/gists/{id}/comments/{commentId}": {
+        "delete": {
+          "description": "Delete a comment.",
+          "parameters": [
+            {"description": "Id of gist.", "in": "path", "name": "id", "required": true, "type": "integer"},
+            {"description": "Id of comment.", "in": "path", "name": "commentId", "required": true, "type": "integer"},
+            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
+            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
+            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
+            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
+            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
+            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
+          ],
+          "responses": {"204": {"description": "No content.\n"}}
+        },
+        "get": {
+          "description": "Get a single comment.",
+          "parameters": [
+            {"description": "Id of gist.", "in": "path", "name": "id", "required": true, "type": "integer"},
+            {"description": "Id of comment.", "in": "path", "name": "commentId", "required": true, "type": "integer"},
+            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
+            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
+            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
+            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
+            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
+            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
+          ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/comment"}} }
+        },
+        "patch": {
+          "description": "Edit a comment.",
+          "parameters": [
+            {"description": "Id of gist.", "in": "path", "name": "id", "required": true, "type": "integer"},
+            {"description": "Id of comment.", "in": "path", "name": "commentId", "required": true, "type": "integer"},
+            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
+            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
+            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
+            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
+            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
+            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"},
+            {"in": "body", "name": "body", "required": true, "schema": {"$ref": "#/definitions/comment"}}
+          ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/comment"}}}
         }
       }
     }
