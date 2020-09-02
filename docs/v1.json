@@ -49,15 +49,6 @@
         "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
       }
     },
-    "/OpmatOrders": {
-      "get": {
-        "description": "Gibt eine Liste mit allen OpmatOrders zurück.\n",
-        "parameters": [
-          {"in": "header", "name": "Authorization", "type": "string"}
-        ],
-        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
-      }
-    },
     "/gists": {
       "get": {
         "description": "List the authenticated user's gists or if called anonymously, this will\nreturn all public gists.\n",
