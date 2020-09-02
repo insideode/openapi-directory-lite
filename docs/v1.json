@@ -9,7 +9,7 @@
       "version": "v1"
     },
     "paths": {
-      "Machines": {
+      "/Machines": {
         "get": {
           "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
           "parameters": [
@@ -44,7 +44,7 @@
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
         }
       },
-      "NCProgramIssues?done={Done}": {
+      "/NCProgramIssues?done={Done}": {
         "get": {
           "description": "Gibt eine Liste mit allen Arbeitsaufgaben für NC-Programme zurück.\n",
           "parameters": [
@@ -54,21 +54,11 @@
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
         }
       },
-      "OpmatOrders": {
+      "/OpmatOrders": {
         "get": {
           "description": "Gibt eine Liste mit allen OpmatOrders zurück.\n",
           "parameters": [
             {"in": "header", "name": "Authorization", "type": "string"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
-        }
-      },
-      "Account/Token": {
-        "get": {
-          "description": "Get Token for current user.\n",
-          "parameters": [
-            {"in": "header", "name": "Content-Type", "type": "application/x-www-form-urlencoded"},
-            {"in": "body", "name": "Username", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
         }
