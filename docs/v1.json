@@ -727,16 +727,17 @@
       "machines": {
         "properties": {
           "MachineID": {"type": "string"},
-          "PlantID": "sample string 2",
-          "Manufacturer": "sample string 3",
-          "InventoryNumber": "sample string 4",
-          "ControlUnit": "sample string 5",
-          "CostCenter": "sample string 6",
-          "Description": "sample string 7",
-          "Description2": "sample string 8",
-          "Description3": "sample string 9",
-          "Description4": "sample string 10",
-          "TotalToolPlaces": 11
+          "PlantID": {"type": "integer"},
+          "Manufacturer": {"type": "string"},
+          "InventoryNumber": {"type": "integer"},
+          "ControlUnit": {"type": "string"},
+          "CostCenter": {"type": "string"},
+          "Description": {"type": "string"},
+          "Description2": {"type": "string"},
+          "Description3": {"type": "string"},
+          "Description4": {"type": "string"},
+          "TotalToolPlaces": {"type": "integer"},
+          "Links": [{"properties": {"rel": {"type": "string"}, "href": {"type": "string"}}, "type": "object"}]
         }
       },
       "feeds": {
