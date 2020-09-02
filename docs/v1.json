@@ -11,7 +11,7 @@
     "paths": {
       "Machines": {
         "get": {
-          "description": "Lists all the available Machines.",
+          "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
           "parameters": [
             {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer PqysmnwpijzcMeyui9...'", "type": "string"}
           ],
