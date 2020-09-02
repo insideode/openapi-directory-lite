@@ -37,106 +37,34 @@
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
         }
+      }
+    },
+    "/gists": {
+      "get": {
+        "description": "List the authenticated user's gists or if called anonymously, this will\nreturn all public gists.\n",
+        "parameters": [
+          {"description": "Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.\nOnly gists updated at or after this time are returned.\n", "in": "query", "name": "since", "type": "string"},
+          {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
+          {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
+          {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
+          {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
+          {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
+          {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
       },
-      "/gists": {
-        "get": {
-          "description": "List the authenticated user's gists or if called anonymously, this will\nreturn all public gists.\n",
-          "parameters": [
-            {"description": "Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.\nOnly gists updated at or after this time are returned.\n", "in": "query", "name": "since", "type": "string"},
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
-        },
-        "post": {
-          "description": "Create a gist.",
-          "parameters": [
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"},
-            {"in": "body", "name": "body", "required": true, "schema": {"$ref": "#/definitions/postGist"}}
-          ],
-          "responses": {"201": {"description": "Created", "schema": {"$ref": "#/definitions/gist"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
-        }
-      },
-      "/gists/public": {
-        "get": {
-          "description": "List all public gists.",
-          "parameters": [
-            {"description": "Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.\nOnly gists updated at or after this time are returned.\n", "in": "query", "name": "since", "type": "string"},
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
-        }
-      },
-      "/gists/starred": {
-        "get": {
-          "description": "List the authenticated user's starred gists.",
-          "parameters": [
-            {"description": "Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.\nOnly gists updated at or after this time are returned.\n", "in": "query", "name": "since", "type": "string"},
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
-        }
-      },
-      "/gists/{id}": {
-        "delete": {
-          "description": "Delete a gist.",
-          "parameters": [
-            {"description": "Id of gist.", "in": "path", "name": "id", "required": true, "type": "integer"},
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
-          ],
-          "responses": {"204": {"description": "No content.\n"}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
-        },
-        "get": {
-          "description": "Get a single gist.",
-          "parameters": [
-            {"description": "Id of gist.", "in": "path", "name": "id", "required": true, "type": "integer"},
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gist"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
-        },
-        "patch": {
-          "description": "Edit a gist.",
-          "parameters": [
-            {"description": "Id of gist.", "in": "path", "name": "id", "required": true, "type": "integer"},
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-            {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-            {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-            {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"},
-            {"in": "body", "name": "body", "required": true, "schema": {"$ref": "#/definitions/patchGist"}}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gist"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
-        }
+      "post": {
+        "description": "Create a gist.",
+        "parameters": [
+          {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
+          {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
+          {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
+          {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
+          {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
+          {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"},
+          {"in": "body", "name": "body", "required": true, "schema": {"$ref": "#/definitions/postGist"}}
+        ],
+        "responses": {"201": {"description": "Created", "schema": {"$ref": "#/definitions/gist"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
       }
     }
   }
