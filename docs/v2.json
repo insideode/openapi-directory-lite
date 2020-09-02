@@ -8,30 +8,27 @@
       "title": "COSCOM API",
       "version": "v2"
     },
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
     "paths": {
       "/Machines": {
         "get": {
-          "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
-          "parameters": [
-            {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer PqysmnwpijzcMeyui9...'", "type": "string"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
-        },
-        "post": {
           "description": "Lists all the available Machines.",
           "parameters": [
-            {"in": "header", "name": "Authorization", "type": "string"}
+            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
+            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
         }
       },
       "/MachineInventories": {
         "get": {
           "description": "List all Tools on Machine.",
           "parameters": [
-            {"in": "header", "name": "Authorization", "type": "string"}
+            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
+            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/events"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
         }
       },
       "/ToolCirculationOrders": {
@@ -41,26 +38,7 @@
             {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "type", "type": "string"},
             {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
-        }
-      },
-      "/NCProgramIssues?done={Done}": {
-        "get": {
-          "description": "Gibt eine Liste mit allen Arbeitsaufgaben für NC-Programme zurück.\n",
-          "parameters": [
-            {"description": "Please enter either true or false.\n", "in": "path", "name": "Done", "type": "string"},
-            {"in": "header", "name": "Authorization", "type": "string"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
-        }
-      },
-      "/OpmatOrders": {
-        "get": {
-          "description": "Gibt eine Liste mit allen OpmatOrders zurück.\n",
-          "parameters": [
-            {"in": "header", "name": "Authorization", "type": "string"}
-          ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
         }
       },
       "/gists": {
