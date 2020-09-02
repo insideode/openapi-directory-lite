@@ -15,7 +15,7 @@
           "parameters": [
             {"in": "header", "name": "Authorization", "type": "string"}
           ],
-          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
         },
         "post": {
           "description": "Lists all the available Machines.",
@@ -723,6 +723,21 @@
           "type": {"type": "string"}
         },
         "type": "object"
+      },
+      "machines": {
+        "properties": {
+          "MachineID": {"type": "string"},
+          "PlantID": "sample string 2",
+          "Manufacturer": "sample string 3",
+          "InventoryNumber": "sample string 4",
+          "ControlUnit": "sample string 5",
+          "CostCenter": "sample string 6",
+          "Description": "sample string 7",
+          "Description2": "sample string 8",
+          "Description3": "sample string 9",
+          "Description4": "sample string 10",
+          "TotalToolPlaces": 11
+        }
       },
       "feeds": {
         "properties": {
