@@ -13,7 +13,8 @@
         "get": {
           "description": "Lists all the available Machines.",
           "parameters": [
-            {"description": "Token", "in": "path", "name": "token", "required": true, "type": "string"}
+            {"description": "Token", "in": "path", "name": "token", "required": true, "type": "string"},
+            {"in": "header", "name": "Bearer Token", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}}
         }
