@@ -22,9 +22,9 @@
         "get": {
           "description": "List all Tools on Machine.",
           "parameters": [
-            {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-            {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"}
-          ]
+            {"in": "header", "name": "Authorization", "type": "string"}
+          ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}}
         }
       },
       "/ToolCirculationOrders": {
@@ -33,6 +33,16 @@
           "parameters": [
             {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "type", "type": "string"},
             {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"}
+          ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
+        }
+      },
+      "NCProgramIssues?done={done}": {
+        "get": {
+          "description": "Gibt eine Liste mit allen Arbeitsaufgaben für NC-Programme zurück.\n",
+          "parameters": [
+            {"in": "header", "name": "Authorization", "type": "string"},
+            {"description": "Please enter either true or false.\n", "in": "query", "name": "Done", "type": "boolean"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
         }
