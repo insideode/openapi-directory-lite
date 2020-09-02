@@ -9,10 +9,11 @@
       "version": "v1"
     },
     "paths": {
-      "/Machines": {
+      "Machines": {
         "get": {
           "description": "Lists all the available Machines.",
           "parameters": [
+            {"in": "header", "name": "Authorization", "value": "fjdifjdifdjfidfjdifjdf"},
             {"in": "header", "name": "Authorization", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}}
