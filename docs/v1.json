@@ -37,7 +37,7 @@
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
         }
       },
-      "NCProgramIssues?done={done}": {
+      "NCProgramIssues?done={Done}": {
         "get": {
           "description": "Gibt eine Liste mit allen Arbeitsaufgaben für NC-Programme zurück.\n",
           "parameters": [
