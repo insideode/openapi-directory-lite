@@ -46,6 +46,25 @@
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
         }
+      },
+      "OpmatOrders": {
+        "get": {
+          "description": "Gibt eine Liste mit allen OpmatOrders zurück.\n",
+          "parameters": [
+            {"in": "header", "name": "Authorization", "type": "string"}
+          ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
+        }
+      },
+      "Account/Token": {
+        "get": {
+          "description": "Get Token for current user.\n",
+          "parameters": [
+            {"in": "header", "name": "Content-type", "type": "application/x-www-form-urlencoded"},
+            {"in": "body", "name": "Username", "type": "string"}
+          ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
+        }
       }
     }
   }
