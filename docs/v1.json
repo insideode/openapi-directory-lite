@@ -13,7 +13,6 @@
         "get": {
           "description": "Lists all the available Machines.",
           "parameters": [
-            {"in": "header", "name": "Authorization", "type": "string", "value": "Bearer PqysmnwpijzcMeyui9xQkto5ccOpvAZL1O9TPAUEG_-7Dd4kMToYaFCX_kxoznd0Pu7dCqrXU9SUQpTHQhvtSh1zmKXnXhwmI_uMWh5AE3pE_BqlMu3miJfaXnDRwX0P9vKISKN1-EebaKQjfLtZl1FQsGlI77nY8RjB7xNRkQ2qZtdjbEWfX2jDffaHjlUn84dX9F-BzT34Fph9Vqc3K78ufDCW3eXuRid6D4xUNT2pCMJLBjKVVCvZPqE8ByzdPpIwIyu5nALiSpLYfS7lZNtv3GOrhwyMAEOCl-OAO2xQ1o9u-09XWJPob9EU-3A_bl78FOPoSC9JaS7XM_B1sl0tZW3dH9zOzZWQTTRJAdgItP6rNUIhUZ4IWaX5ACvZHpif91xO0OtYfcfrxxWfc6g_6JCnLHr4M4vIAR6Dbnc"},
             {"in": "header", "name": "Authorization", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}}
