@@ -88,7 +88,7 @@
           "Description3": {"type": "string"},
           "Description4": {"type": "string"},
           "TotalToolPlaces": {"type": "integer"},
-          "Links": {"properties": {"rel": {"type": "string"}, "href": {"type": "string"}}, "type": "array"}
+          "Links": {"properties": {"rel": {"type": "string"}, "href": {"type": "string"}}, "type": "object"}
         }
       }
     }
