@@ -16,6 +16,13 @@
             {"in": "header", "name": "Authorization", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}}
+        },
+        "post": {
+          "description": "Lists all the available Machines.",
+          "parameters": [
+            {"in": "header", "name": "Authorization", "type": "string"}
+          ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/Machines"}}}
         }
       },
       "/MachineInventories": {
@@ -60,7 +67,7 @@
         "get": {
           "description": "Get Token for current user.\n",
           "parameters": [
-            {"in": "header", "name": "Content-Type", "type": "string"},
+            {"in": "header", "name": "Content-Type", "type": "application/x-www-form-urlencoded"},
             {"in": "body", "name": "Username", "type": "string"}
           ],
           "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/feeds"}}}
