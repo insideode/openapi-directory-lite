@@ -6,7 +6,7 @@
   "info": {
     "description": "Powerfull testing tool for COSCOM endpoint.\n",
     "title": "COSCOM API",
-    "version": "v1"
+    "version": "v2"
   },
   "consumes": ["application/json"],
   "produces": ["application/json"],
@@ -18,14 +18,32 @@
         {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer PqysmnwpijzcMeyui9...'", "type": "string"}
       ],
         "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
+      },
+      "post": {
+        "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
+      "parameters": [
+        {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer PqysmnwpijzcMeyui9...'", "type": "string"}
+      ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
       }
     },
     "/Machines/{plantID}": {
       "get": {
         "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
         "parameters": [
-          {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer..'", "type": "string"},
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
           {"in": "path", "name": "plantID", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
+      }
+    },
+    "/Machines/{plantID}/{machineID}": {
+      "get": {
+        "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
+          {"in": "path", "name": "plantID", "type": "string"},
+          {"in": "path", "name": "machineID", "type": "string"}
         ],
         "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
       }
