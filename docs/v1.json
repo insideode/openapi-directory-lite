@@ -35,7 +35,15 @@
         {"in": "path", "name": "ID", "type": "string"}
       ],
         "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
-      }
+      },
+      "delete": {
+        "description": "Löschen der Maschinen mit ID.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer...'", "type": "string"},
+          {"in": "path", "name": "ID", "type": "string"}
+        ],
+          "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
+        }
     },
     "/Machines/{plantID}": {
       "get": {
