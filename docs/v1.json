@@ -101,6 +101,37 @@
         "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
       }
     },
+    "/ProductOrders/{productOrderID}/OpmatOrders": {
+      "get": {
+        "description": "Ermittelt die Betriebsmittelliste zu einem einzelnen Betriebsmittelauftrag.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
+          {"in": "path", "name": "productOrderID", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
+      }
+    },
+    "/ProductOrders?productOrderID={productOrderID}": {
+      "get": {
+        "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
+          {"in": "path", "name": "productOrderID", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
+      }
+    },
+    "/ProductOrders?productOrderID={productOrderID}&logOffOrder={logOffOrder}": {
+      "delete": {
+        "description": "Meldet einen einzelnen Betriebsmittelauftrag ab (oder bricht ihn ab).\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
+          {"in": "path", "name": "productOrderID", "type": "string"},
+          {"in": "path", "name": "logOffOrder", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
+      }
+    },
     "/gists/public": {
       "get": {
         "description": "List all public gists.",
