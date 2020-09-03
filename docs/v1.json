@@ -111,19 +111,14 @@
         "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
       }
     },
-    "/gists/starred": {
+    "/ProductOrders?productOrderID={productOrderID}": {
       "get": {
-        "description": "List the authenticated user's starred gists.",
+        "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
         "parameters": [
-          {"description": "Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.\nOnly gists updated at or after this time are returned.\n", "in": "query", "name": "since", "type": "string"},
-          {"description": "You can check the current version of media type in responses.\n", "in": "header", "name": "X-GitHub-Media-Type", "type": "string"},
-          {"description": "Is used to set specified media type.", "in": "header", "name": "Accept", "type": "string"},
-          {"in": "header", "name": "X-RateLimit-Limit", "type": "integer"},
-          {"in": "header", "name": "X-RateLimit-Remaining", "type": "integer"},
-          {"in": "header", "name": "X-RateLimit-Reset", "type": "integer"},
-          {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
+          {"in": "path", "name": "productOrderID", "type": "string"}
         ],
-        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/gists"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
       }
     },
     "/gists/{id}": {
