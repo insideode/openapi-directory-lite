@@ -111,16 +111,6 @@
         "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
       }
     },
-    "/ProductOrders?productOrderID={productOrderID}": {
-      "get": {
-        "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
-        "parameters": [
-          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
-          {"in": "path", "name": "productOrderID", "type": "string"}
-        ],
-        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
-      }
-    },
     "/gists/starred": {
       "get": {
         "description": "List the authenticated user's starred gists.",
