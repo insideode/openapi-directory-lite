@@ -27,6 +27,16 @@
         "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
       }
     },
+    "/Machines/{ID}": {
+      "put": {
+        "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
+      "parameters": [
+        {"in": "header", "name": "Authorization", "description":"Please enter a Token, e.g. 'Bearer...'", "type": "string"},
+        {"in": "path", "name": "ID", "type": "string"}
+      ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}}
+      }
+    },
     "/Machines/{plantID}": {
       "get": {
         "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
