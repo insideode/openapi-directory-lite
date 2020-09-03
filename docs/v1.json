@@ -6,7 +6,7 @@
   "info": {
     "description": "Powerfull testing tool for COSCOM endpoint.\n",
     "title": "COSCOM API",
-    "version": "v2"
+    "version": "v1"
   },
   "consumes": ["application/json"],
   "produces": ["application/json"],
@@ -214,53 +214,6 @@
         "responses": {"201": {"description": "Created", "schema": {"$ref": "#/definitions/comment"}}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
       }
     },
-    "/ProductOrders": {
-      "get": {
-        "description": "Legt einen neuen Betriebsmittelauftrag an.\n",
-        "parameters": [
-          {"in": "header", "name": "Authorization", "description":"", "type": "string"}
-        ],
-        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
-      },
-      "post": {
-        "description": "Legt einen neuen Betriebsmittelauftrag an.\n",
-        "parameters": [
-          {"in": "header", "name": "Authorization", "description":"", "type": "string"}
-        ],
-        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
-      }
-    },
-    "/ProductOrders/{productOrderID}/OpmatOrders": {
-      "get": {
-        "description": "Ermittelt die Betriebsmittelliste zu einem einzelnen Betriebsmittelauftrag.\n",
-        "parameters": [
-          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
-          {"in": "path", "name": "productOrderID", "type": "string"}
-        ],
-        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
-      }
-    },
-    "/ProductOrders?productOrderID={productOrderID}": {
-      "get": {
-        "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
-        "parameters": [
-          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
-          {"in": "path", "name": "productOrderID", "type": "string"}
-        ],
-        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
-      }
-    },
-    "/ProductOrders?productOrderID={productOrderID}&logOffOrder={logOffOrder}": {
-      "delete": {
-        "description": "Meldet einen einzelnen Betriebsmittelauftrag ab (oder bricht ihn ab).\n",
-        "parameters": [
-          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
-          {"in": "path", "name": "productOrderID", "type": "string"},
-          {"in": "path", "name": "logOffOrder", "type": "string"}
-        ],
-        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
-      }
-    },
     "/gists/{id}/comments/{commentId}": {
       "delete": {
         "description": "Delete a comment.",
@@ -360,6 +313,53 @@
           {"in": "header", "name": "X-GitHub-Request-Id", "type": "integer"}
         ],
         "responses": {"204": {"description": "Starred."}, "403": {"description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"}}
+      }
+    },
+    "/ProductOrders": {
+      "get": {
+        "description": "Legt einen neuen Betriebsmittelauftrag an.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
+      },
+      "post": {
+        "description": "Legt einen neuen Betriebsmittelauftrag an.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
+      }
+    },
+    "/ProductOrders/{productOrderID}/OpmatOrders": {
+      "get": {
+        "description": "Ermittelt die Betriebsmittelliste zu einem einzelnen Betriebsmittelauftrag.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
+          {"in": "path", "name": "productOrderID", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
+      }
+    },
+    "/ProductOrders?productOrderID={productOrderID}": {
+      "get": {
+        "description": "Gibt eine Liste mit allen Maschinen zurück.\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
+          {"in": "path", "name": "productOrderID", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
+      }
+    },
+    "/ProductOrders?productOrderID={productOrderID}&logOffOrder={logOffOrder}": {
+      "delete": {
+        "description": "Meldet einen einzelnen Betriebsmittelauftrag ab (oder bricht ihn ab).\n",
+        "parameters": [
+          {"in": "header", "name": "Authorization", "description":"", "type": "string"},
+          {"in": "path", "name": "productOrderID", "type": "string"},
+          {"in": "path", "name": "logOffOrder", "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK", "schema": {"$ref": "#/definitions/machines"}}} 
       }
     }
   },
